@@ -1,0 +1,4 @@
+[autorun]
+open=ShellExe.exe index.html readme.txt
+icon=favicon.ico,2
+label=Greece Sailing Trip 2004

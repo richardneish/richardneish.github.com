@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>MindTerm with ISNetworks' SCP modifications in an applet...</title>
+</head>
+<body>
+<hr>
+This is a demo of MindTerm with ISNetworks' SCP modifications running as an applet.
+IE will give you a warning that it does not trust the certificate used to sign
+the code because IE does not have the ISNetworks Root CA installed as a trusted CA.
+In order to do SCP file transfers the applet will need access to the local file system
+and the SSH/SCP server, and therefore asks for the necessary permissions.
+<hr>
+<applet code=mindbright.application.MindTerm.class width=1 height=1>
+<param name=cabbase value="sshIE.cab">
+<param name=sepframe value="true">
+<param name=autoprops value="both">
+<param name=debug value="true">
+</applet>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+  <body bgcolor="white">
+    <title>Bookmark editor (new bookmark)</title>
+    <h1>Bookmark editor (new bookmark)</h1>
+    <form method="GET">
+      <input type="hidden" name="action" value="add">
+      <table>
+        <tr>
+          <td align="right">Category</td>
+          <td align="left">
+            <input type="text" name="category" value="<?= $link->category ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Description</td>
+          <td align="left">
+            <input type="text" name="description" value="<?= $link->description ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">URL</td>
+          <td align="left">
+            <input type="text" name="newUrl" value="<?= $link->url ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="left" colspan="2">
+            <input type="submit" value="Save">
+            <a href="index.php">Cancel</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

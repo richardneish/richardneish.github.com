@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta name="generator" content="Emacs 20.2.1">
+  <title>Demo of MindTerm as a signed applet</title>
+</head>
+<body>
+<br>
+This is a demo of MindTerm with ISNetworks' SCP modifications running as an applet.
+Netscape will not accept the signed applet unless you trust the ISNetworks Root CA.
+You can install that certificate by clicking <a href="ISNetworksCA.cacert">here</a>
+if this web server has the .cacert MIME type mapped to application/x-x509-ca-cert or
+from <a href="http://www.isnetworks.com/ssh/ISNetworksCA.cacert">ISNetworks' site</a>.
+You'll need to trust the cert for signing software and then restart Netscape for the
+permissions to take effect.
+<br>
+In order to do SCP file transfers the applet will need access to the local file system
+and the SSH/SCP server, and therefore asks for the necessary permissions.
+<hr>
+<applet archive="sshNetscape.jar" code=mindbright.application.MindTerm.class width=1 height=1>
+<param name=sepframe value="true">
+<param name=autoprops value="both">
+</applet>
+</body>
+</html>

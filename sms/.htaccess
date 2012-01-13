@@ -1,0 +1,4 @@
+AuthType basic
+AuthName "SMS text messaging"
+AuthUserFile /home/richardn/public_html/www.richardneish.org/sms/.htpasswd
+Require valid-user

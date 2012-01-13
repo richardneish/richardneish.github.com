@@ -1,0 +1,25 @@
+<html><head><title> RMP.COM.JM server migration notes</title></head>
+<body bgcolor="white">
+<h1>RMP.COM.JM server migration notes and status</h1>
+Last Updated 2003-07-22 16:20GMT
+
+<p>Since the server migration may involve delays in sending / receiving email messages I have decided to keep important information on the status of this project online here.  The current status of the project is:</p>
+<ul>
+<li><b>User accounts:</b> When the new server was first brought online I copied the user account information to the new server, including home directories and password info for admin, deniseh, patricke, raymonds, reecek,richardn and throyd.  Other accounts may not be completely migrated yet.  Today I noticed a user account on the old server called 'stanfordw'.  This account does not exist on the new server yet.  Should it be created?  What is the full name of this user?  What mail lists should they be added to (sales, support, rmp, etc)</li>
+<li><b>DNS services</b> DNS services have been migrated to the new server.  The information at ns.jm (UWI - source of authority for the .JM domain) now points to the new server as the source of authority for the RMP.COM.JM, RJYC.ORG.JM and CLASSICCAR.ORG.JM domains.  I have also confirmed that the dynamic DNS tools that supports INTERNAL.DYNAMIC.RMP.COM.JM works.  This tool can be accessed at http://www.rmp.com.jm/cgi-bin/dyndns.cgi.  A DNS entry for the old server has been created as oldserver.rmp.com.jm.</li>
+<li><b>Web services: </b> Web pages were migrated to the new server when it first came on line.  Any changes made in the last week or so may not have been moved over to the new server.  Recently changed files may need to be copied over from the old server again.</li>
+<li><b>Email: </b> The email virtual user table has been migrated.  The mailing lists (sales, support, rmp) were not migrated initially but have been migrated and tested now.  Some mail sent to these lists may have been lost or returned to the sender.  Also there may be some mail still sitting in the spool directory on the old server.  To import this mail into your mail spool on the new server follow the following procedure.
+<pre>
+  1. Log on to the new server (69.0.211.30) using SSH
+  2. From the command prompt type 'fetchmail oldserver'
+  3. When prompted type your old server password
+  4. Retrieve your mail as usual using POP3 (Outlook, Eudora, whatever)
+</pre>
+
+You only need to do this once, but each user has to do it.</li>
+<li><b>Other services: </b> Informix has not yet been touched.  The installation files for IIF 9.2 have been copied to the new server but I have notr attempted installation yet.  Email pop-before-smtp has been installed on the new server but has not been fully tested.  If you have problems, use mail.cwjamaica.com for the outgoing SMTP server until I get a change to fix it.  FTP access has been disabled.  Use SSH and SCP if you need to transfer files to / from the server.  Anything else I have not mentioned is probably not done yet.  If you need to reset passwords for any user use SSH to log in as root and use &quot;passwd &lt;username&gt;&quot;.</li>
+</ul>
+<p>I will be on vacation from 22nd July 2003 (today) until 30th July 2003 (next Wednesday) and will not be working on this further until after then.  I am sure there are outstanding issues that will crop up.  Please make a list and I will work on it when I get back.</p>
+<p>Richard</P>
+</body>
+</html>

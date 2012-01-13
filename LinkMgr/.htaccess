@@ -1,0 +1,8 @@
+AuthName "Link Manager"
+AuthType "Basic"
+AuthUserFile ".htpasswd"
+Require "valid-user"
+
+<Location "/LinkMgr/test.gif">
+  AddType application/x-httpd-php .gif
+</Location>

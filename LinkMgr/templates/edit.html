@@ -1,0 +1,61 @@
+<html>
+  <body bgcolor="white">
+    <title>Bookmark editor</title>
+    <h1>Bookmark editor</h1>
+    <form method="GET">
+      <input type="hidden" name="action" value="save">
+      <input type="hidden" name="index" value="<?= $link->index ?>">
+      <input type="hidden" name="url" value="<?= $link->url ?>">
+      <table>
+        <tr>
+          <td align="right">Index</td>
+          <td align="left">
+            <input type="text" name="newIndex" value="<?= $link->index ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Category</td>
+          <td align="left">
+            <input type="text" name="category" value="<?= $link->category ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Description</td>
+          <td align="left">
+            <input type="text" name="description" value="<?= $link->description ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">URL</td>
+          <td align="left">
+            <input type="text" name="newUrl" value="<?= $link->url ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Created Timestamp</td>
+          <td align="left">
+            <input type="text" name="createdTimestamp" value="<?= $link->createdTimestamp ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Last Visited Timestamp</td>
+          <td align="left">
+            <input type="text" name="lastVisitedTimestamp" value="<?= $link->lastVisitedTimestamp ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="right">Visit Count</td>
+          <td align="left">
+            <input type="text" name="visitCount" value="<?= $link->visitCount ?>">
+          </td>
+        </tr>
+        <tr>
+          <td align="left" colspan="2">
+            <input type="submit" value="Save">
+            <a href="index.php">Cancel</a>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

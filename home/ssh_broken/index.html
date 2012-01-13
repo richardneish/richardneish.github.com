@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.0//EN">
+
+<HTML>
+<HEAD>
+	<LINK REL="STYLESHEET" TYPE="text/css" HREF="http://www.cl.cam.ac.uk/~fapp2/fapp2.css">
+	<TITLE>C&eacute;dric Gourio's Java-SSH</TITLE>
+	<META NAME="author" CONTENT="Fabien Petitcolas - University of Cambridge">
+	<META NAME="keywords" CONTENT="SSH, Java, applet, secure shell">
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF"  TEXT="#000000" LINK="#003399" ALINK="#99CCFF" VLINK="#003399">
+<FONT FACE="Century Schoolbook, century, times">
+
+<FONT FACE="Arial,Helvetica" SIZE=+1>Software</FONT>
+<BR>
+<A HREF="http://www.cl.cam.ac.uk/~fapp2/software/"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/up.gif" WIDTH=13 HEIGHT=22 BORDER=0 ALT="Up"></A>
+<FONT FACE="Arial,Helvetica" SIZE=+1>
+<B>C&eacute;dric Gourio's Java-SSH
+</B></FONT>
+<TABLE WIDTH=100%><TR>
+<TD WIDTH=10%><HR SIZE=5 NOSHADE COLOR=#000000></TD><TD><HR SIZE=1 NOSHADE COLOR=#000000></TD>
+</TR></TABLE>
+<P>
+
+<UL>
+<DL>
+
+<P><EM><FONT SIZE="+2">T</FONT>he Java-SSH applet and this page have been written by C&eacute;dric Gourio for his <A HREF="http://www.cl.cam.ac.uk/DeptInfo/Diploma/DIPLOMA.html">Diploma</A>'s project. If you have comments about this applet, please <A HREF="mailto:javassh@france-mail.com">send them directly to C&eacute;dric</A>, as <A HREF="http://www.cl.cam.ac.uk/~fapp2/">I</A> just host and maintain this page.</EM>
+
+<P><FONT SIZE="+2">I</FONT>f you have problem running the applet, check the <EM><A HREF="#COMPATIBILITY">compatibility</A></EM> and <EM><A HREF="#USAGE">usage</A></EM> sections.</P>
+
+<CENTER>
+<applet archive="Ssh.jar" code=Ssh.class  width=600 height=460>
+<param name=login value="">
+<param name=password value="">
+<param name=hostname value="">
+<param name=hashHostKey value="">
+<param name=port value="22">
+<param name=scrollbar value="East">
+<param name=scrollingBufferSize value="0">
+<param name=numberOfCharsDisplayBeforeScreenUpdate value="0">
+<param name=ScreenUpdateForEachPacket value="false">
+<I><FONT SIZE="+2">I</FONT>t seems that you do not have a Java browser.</I>
+</applet>
+</CENTER>
+<BR>
+
+
+
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B> Description</B></FONT>
+<DD CLASS="Padded"><FONT SIZE="+2">T</FONT>his applet implements the Ssh Protocol 1.5. The Terminal Emulation is almost VT100 compliant. It provides secure communications over insecure networks.  All communications are automatically and transparently encrypted. Encryption is also used to protect integrity.
+<DD CLASS="Padded"><FONT SIZE="+2">F</FONT>or more information about Ssh, click <A HREF="http://www.uni-karlsruhe.de/~ig25/ssh-faq/">here</A> to read the Ssh FAQ or visit the <A HREF="http://www.cs.hut.fi/ssh/">Ssh home page</A> or contact <A HREF="mailto:javassh@france-mail.com">C&eacute;dric Gourio</A>, the author of this applet:
+<UL>
+<LI>e-mail: <A HREF="mailto:javassh@france-mail.com">javassh@france-mail.com</A>
+<LI>voice mail: +33 8 36 69 00 21   00 38683 #
+</UL>
+<DD CLASS="Padded"><FONT SIZE="+2">Y</FONT>ou can <A HREF="http://www.cl.cam.ac.uk/~fapp2/software/Java-SSH.zip">download</A> and use this program for free.
+
+
+
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B><A NAME="COMPATIBILITY">Compatibility</A></B></FONT>
+<DD CLASS="Padded"><FONT SIZE="+2">T</FONT>he applet is working with:
+<UL>   
+<LI>Internet Explorer 4.0;
+<LI>Applet viewer fom sun (JDK 1.1.5)
+</UL>
+<DD CLASS="Padded"><FONT SIZE="+2">Y</FONT>ou will need the <A HREF="http://developer.netscape.com/software/jdk/download.html">AWT1.1 update</A> with Netscape Navigator. (otherwise you will get: a <EM>java.lang.NoSuchMethodError</EM> exception)
+   
+
+   
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B><A NAME="USAGE">Usage</A></B></FONT>
+<DD CLASS="Padded"><FONT SIZE="+2">J</FONT>ava is designed to run its applets within a "sandbox" of safety, which prevents it from creating any network connection excepted with the computer from which the .class files itself come. This is either the host where the html page came from, or the host specified in the codebase parameter in the applet tag, with codebase taking precendence. 
+<DD CLASS="Padded"><FONT SIZE="+2">S</FONT>o if you want to use this applet, you can either:
+<UL>
+	<LI>copy the Ssh classes on the host you want to connect to and use it from there.
+	<LI>change your browser security (otherwise you will get a SecurityEceptionEx : ..cannot access ...)
+</UL>
+<P></P>
+<DD CLASS="Padded">Note: 
+<UL>   
+	<LI><A HREF="telnet://hermes.cam.ac.uk">Hermes</A> does not provide any Ssh access.
+	<LI>If the host you want to connect to, does not provide a Web server but a ftp server with anonymous login, you can use it to download the <TT>.class</TT> files from there. ftp:\\hostname\Ssh.class would be an approriate URL It would allow you to connect to "hostname" via Ssh without changing your browser settings.
+</UL>
+
+
+
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B>Features</B></FONT>
+<DD CLASS="Padded"><FONT SIZE="+2">T</FONT>he cipher used is IDEA in CFB mode. (the other possibility was 3DES in CBC mode) If the server does not support the encryption method the connection is closed.
+<DD CLASS="Padded"><FONT SIZE="+2">T</FONT>he only authentification method provided is the password authentication. (you provide a user-id and a password)
+<DD CLASS="Padded"><FONT SIZE="+2">T</FONT>he login-password authentification presents some flaws so a small enhancement 
+was added. It is possible to authentificate the server through his RSA public Key. You can set the MD5 result of the host public key modulo, in the applet parameters ("hashHostKey") This modulo is always accesible on the server. You will need a MD5 binary to compute this hash result. Before to send your password and login the program will check that the hash values match and that the host is therefore valid. This prevent somebody from DNS, routing, or IP spoofing concerning  the server. Of course, if you download the applet over an unsecure channel, it can be spoofed as well. So, the best is either to have already the  applet on your hard disk, or to use a secure HTTP connection such as SSL. Hopefully, spoofing is not as easy as eavesdropping.
+
+
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B>Parameters</B></FONT>
+<DL>
+<DT><VAR>hostname</VAR>
+<DD>The host you want to connect to, the default is the host from where the applet is downloaded.
+<DT><VAR>hashHostKey</VAR>
+<DD>The MD5 of the server_key_public_modulus from the host. If this parameter is set and the value does not correspond the login and password will not be sent. This gives a way to be sure of the host. Of course, if we doubt the host authenticity we should doubt the applet authenticity.
+<DT><VAR>login</VAR>
+<DD>Your user-id the default is ""
+<DT><VAR>port</VAR>
+<DD>The port used for the connection the default is 22 (The port has been officially registered).
+<DT><VAR>scrollbar</VAR>
+<DD>The position of the terminal scrollbar (scrollbar = East) - (scrollbar = West). If the parameter is not Est or West no scrollbar will be used.
+<DT><VAR>scrollingBufferSize</VAR>
+<DD>The size of the buffer used with the scrollbar
+<DT><VAR>numberOfCharsDisplayBeforeScreenUpdate</VAR>
+<DD>If we call this number <EM>n</EM>, the screen will be updated every <PARAM>n</PARAM> characters sent to the terminal. If <VAR>n</VAR> is 0, it will be updated after the <VAR>numberOfBytesProcessed</VAR> from the protocol layer have been sent to the screen. This influences how quick the display will be.
+<DT><VAR>ScreenUpdateForEachPacket</VAR>
+<DD>This field can be set to 'true' or 'false', the default being 'false'. When the client receives data, it receives a few packets (3-4) at the same time. If this field is set to false; it will process all of them and then display the result. Otherwise, it will display the data after each packet is processed. 
+</DL>
+
+
+
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B>Related documents</B></FONT>
+<DD><FONT SIZE="+2">H</FONT>ere is an index of some documents used for the implementation.
+<P></P>
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="Port_Numbers_and_services.html">Port Numbers and services</A>
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="SSH_Remote_Login_Protocol.txt">SSH Remote Login Protocol Version 1.5</A>
+
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="Cryptographic_algorithms.html">Cryptographic algorithms</A>  from <A HREF= "http://www.cs.hut.fi/crypto/algorithms.html"> www.cs.hut.fi </A>
+
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="RSA_algorithm.html">RSA algorithm</A> from <A HREF= "http://world.std.com/~franl/crypto/rsa-guts.html"> world.std.com </A>
+
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="pkcs-1.txt">PKCS #1: RSA Encryption Standard (used in the SSH protocol 1.5)</A>
+
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="rfc132-MD5.txt">Message Digest 5 : RFC 1321</A>
+
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="telnet_Protocol_(RFC854).txt">telnet Protocol RFC 854</A>
+
+<DD><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/very_small_square.gif" WIDTH=7 HEIGHT=7 ALT="" BORDER="0"> <A HREF="VT100.txt">ANSI/VT100 Terminal Control</A>
+
+
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B>Sources</B></FONT>
+
+<DD><FONT SIZE="+2">T</FONT>o carry out my applet, three  external sources were used:
+
+<UL>
+<LI><A HREF="http://java.sun.com/">Java Technology Home Page</A>
+<LI><A HREF="http://www.systemics.com/software/cryptix-java/">The Systemics Cryptix Cryptography Library</A>.
+The cryptix libraries were used to implement the IDEA encryption and the MD5 hash function. It was the version 2.2 (the current is 3.03) With regards to RSA (PKCS #1) required in the protocol, it was implemented using 'java.math.BigInteger' from sun, Cryptix was not straightforward and anyway, the PKCS # 1 standard was not provided.
+<BR>
+Note: The cryptix package was modified such that the propgram can be used as as a simple applet (untrusted). Indeed, when loaded, the cryptix classes try to load native libraries. This, produces a security exception, which stops the applet.
+
+<LI><A HREF=" http://www.first.gmd.de/persons/leo/java/Telnet/"> The Java(tm) Telnet Applet</A>.
+Here, two classed we used to implement a 'simple character display'. (a kind of enhanced java.awt.TextField) The classes are 'display.CharDisplay' and 'display.SoftFont' Special thanks to <A HREF="mailto:leo@first.gmd.de">Matthias L. Jugel</A> for having provided two exclusive licences for using these classes.
+</UL>
+
+<BR>
+
+<DD><FONT SIZE="+2">T</FONT>he Java Ssh <a href="http://www.cl.cam.ac.uk/~fapp2/software/Java-SSH.zip">sources</a> are available... alternatively, you can try to <a href="http://www.brouhaha.com/~eric/computers/mocha.html"> decompile </a> them :-)
+
+
+<DT CLASS="Padded"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/small_square.gif" WIDTH=12 HEIGHT=12 BORDER=0 ALT="-"> <FONT FACE="Arial,Helvetica"><B>Copyright</B></FONT>
+<DD CLASS="Padded"><FONT SIZE="+2">T</FONT>his java Ssh applet includes a <A HREF="ssh.txt">copyright</A>. The code was developed on my own machine. Please note that two libraries used are provided with their own copyrights:
+
+<UL>
+<LI>This product includes software developed by the Cryptix Development Team <A HREF="http://www.systemics.com/docs/cryptix">http://www.systemics.com/docs/cryptix</A> and comes with its own <A HREF="cryptix.txt">copyright</A>
+
+<LI>The Display package from The Telnet Java applet is available under the terms of the GNU General Public License. Here an <A HREF="telnet.txt">exclusive licence</A> for the Ssh applet was provided by the Telnet authors since the GNU General Public License cannot include programs using RSA.
+</UL>
+
+</DL>
+</UL>
+
+<P>
+<A HREF="http://www.cl.cam.ac.uk/~fapp2/software/"><IMG SRC="http://www.cl.cam.ac.uk/~fapp2/icons/previous.gif" WIDTH=12 HEIGHT=14 BORDER=0 ALT="Return to index"></A>
+</FONT>
+</BODY>
+
+<ADDRESS>
+<P></P>
+Originaly by <A HREF="mailto:javassh@france-mail.com">C&eacute;dric Gourio</A><BR>
+Maintained by <A HREF="http://www.cl.cam.ac.uk/~fapp2/">Fabien A.P. Petitcolas</A>, Computer Laboratory, University of Cambridge<BR>
+</ADDRESS>
+
+
+</HTML>
+
+
+</FONT>
+</BODY>
+
+</HTML>

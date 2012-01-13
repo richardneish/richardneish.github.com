@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Taskpaper.help</title>
+  <link rel="stylesheet" type="text/css" href="css/help.css" media="screen">
+</head>
+
+<body>
+<div id="content">
+<h1>Taskpaper.web</h1>
+<p>A simple, easy to use plain text file-based task management web
+application. It offers superb ways of filtering, grouping, searching
+for and managing your tasks. But ultimately 'all your tasks belong you',
+so everything is stored in a simple text file format. Tasks
+are created and edited directly in the text file, either in the
+application or in an editor of your choice.
+</p>
+<div class="section">
+    <div class="figure"><img src="help/task view.jpg" width="400px"></div>
+    <div class="blurb"><p>Add tasks, projects and notes to quickly create a simple, easy-on-the-eye list of thing to do!</p></div>
+</div>
+<div class="section">
+    <div class="blurb"><p>Easily add tags to any task (or even project), to help you find and group your list</p></div>
+    <div class="figure"><img src="help/tags sidebar.jpg" height="199px"></div>
+</div>
+<div class="section">
+    <div class="figure"><img src="help/projects sidebar.jpg" height="199px"></div>
+    <div class="blurb"><p>Divide your tasks up into simple projects. Click to view that project only</p></div>
+</div>
+<div class="section">
+    <div class="blurb"><p>Powerful search box, with Google-like syntax. Just type words or dates to look for, or use any of the special
+    commands. For example, type '=late' to see tasks that are overdue.</p></div>
+    <div class="figure"><img src="help/command-box.jpg" width="498px"></div>
+</div>
+<div class="section">
+    <div class="figure"><img src="help/task toolbar.jpg" width="199px"></div>
+    <div class="blurb"><p>Click the Edit button to edit your task list...it's just a plain text file underneath its shiny skin!</p></div>
+</div>
+<h2>The Taskpaper Syntax</h2>
+<h4>Projects</h4>
+<p>Projects are created by writing the project name on a line followed by a colon ( : )
+    <pre>This is a project:</pre>
+</p>
+<h4>Tasks</h4>
+<p>You make a task by beginning the line with dash-space ( - &nbsp;)
+    <pre>- this is a task</pre>
+</p>
+<h4>Tags</h4>
+<p>No task management is complete without ubiquitious 'tags', a quick, simple way of group and filtering your tasks.&nbsp;
+A tag is added by putting a @ symbol before the tag word
+    <pre>- this is a task @tag @another-tag</pre>
+</p>
+<p><em>(Note: sorry, no spaces allowed in tags...you'll get used to it!)</em></p>
+<h4>Dated Tags</h4>
+<p>You an also make a dated tag (i.e. a due date) by using the @ followed by the date
+    <pre>- a dated tasks @15-dec-2009</pre>
+</p>
+<p><em>(Note: the date format default is dd-mmm-yyyy, but this can be changed in the config.php file)</em></p>
+<h4>Notes</h4>
+<p>Any line beginning with ... (an ellipsis) is considered as a note. Simple as that. &nbsp;Notes belong to the task above them
+    <pre>...a note all by itself</pre>
+</p>
+<h4>Complete/Done</h4>
+<p>To show that a task is done, just put an X at the start of the line. &nbsp;Simple, visible, memorable!
+    <pre>X- this task is done</pre>
+</p>
+<h4>Highlighting/Starred</h4>
+<p>To highlight a task (aka: starred) you can simply put an * (asterisk) at the end of the line
+    <pre>- this task is highlighted*<br></pre>
+</p>
+<h4>Other points worth noting:</h4>
+<p>It's usually best to leave a blank line between projects, it makes it easier to recognise the
+different projects. &nbsp;At the top of the list is a good place to
+put any new (orphaned) tasks that you haven't had time to
+file yet. &nbsp;As noted below tasks entered in the 'Search Box' also puts
+new tasks here by default. &nbsp;</p>
+<h2>Adding and Editing Tasks</h2>
+<p>You can edit the whole taskpaper document by clicking the <strong>'Edit'</strong>
+button on the toolbar at the top; make any edits you want and click <strong>'Save'</strong>
+button when you're finished. &nbsp;</p>
+<p>You can also quickly add new tasks using the <strong>'Search/Command Box'</strong> at
+the top right. &nbsp;Just type a task as you normally would (i.e.
+start with '- ') and press enter when you're done. &nbsp;You can
+also add tags, or even choose the project by typing <strong>'/'</strong>
+followed by the project number (Refer to the project numbers in list on left) or
+by selecting a project before you enter a new task. &nbsp;By
+default all new tasks added this way will be put at the top if no project is given.</p>
+<p>You can also use time periods in tags when adding tasks through the Command Box; for example
+if you type "@today" it will be changed to today's date when the task is added.
+The following time periods are recognised:
+    <pre>@today, @tomorrow, @day, @week, @month, @year</pre>
+</p>
+<p>Before the last 4 periods you can also put a number, e.g:
+    <pre>@2day, @3week (i.e. in 2 days, in 3 weeks)</pre>
+</p>
+<p><em>Note: spaces and plurals are not recognised (yet...)</em></p>
+<h2>Examples</h2>
+<p>So, to put it all together here's a complete example:
+<pre>The first project:
+- get to work early @remind @important *
+- get to bed early @maybe
+X- buy flowers for your wife @remind @30-dec-2009
+
+Second project:
+- wake up early @soon
+- eat wholemeal porridge @food @today*
+...try Tiger Oats?</pre>
+</p>
+<h2>Group, Filter, Search</h2>
+<p>Click on any tag, anywhere to
+filter/group by that tag. &nbsp;Same thing for projects; click on
+the project heading to see tasks from that project only.</p>
+<p>Use the search box on the top right to do a full-text search, multiple words can be used. &nbsp;
+Words can be excluded by putting '-' before them:
+    <pre>yes -no</pre>
+</p>
+<p>You can also search by date:
+    <pre>&gt;12-feb-2009 =&gt; all tasks after this date</pre>
+    <pre>&lt;12-jan-2008 =&gt; all tasks before this date</pre>
+    <pre>"12-jan-2009 12-feb-2009" =&gt; all tasks between these dates</pre>
+    <pre>12-feb-2009..30-may-2009 =&gt; (alternative way of doing date ranges)</pre>
+</p>
+<p>Or by time period: any of the following are accepted and understood:
+    <pre> =today, =week, =month, =quarter, =year</pre>
+</p>
+<p>Use the special <strong>'done', 'starred', 'due', 'late'</strong> tags to filter by these categories.</p>
+<p>Of course you can also use these tags in the Search Box too:
+    <pre>=due, =late, =star, =done</pre>
+</p>
+<p>You can search for specific phrases by enclosing them in quotes (" "):
+    <pre>"specific phrase"</pre>
+</p>
+<p>All the above can be combined in one search as well, e.g.:
+    <pre>=due order "door hinges"</pre>
+</p>
+<p>Taskpaper will try to sort and group date searches by month for a better overview. &nbsp;
+If your search contains many words, commands and/or dates, then put the date at the end to group the search.
+For example these searches would be grouped:
+    <pre>roof =month</pre>
+    <pre>joe door =due</pre>
+</p>
+<p>These searches will not be grouped:
+    <pre>=month order</pre>
+    <pre>=due electrical</pre>
+</p>
+<br>
+<br>
+<p>Symon Bent, South Africa,
+Revised: 26-Mar-2009 10:47</p>
+</div>
+</body>
+</html>

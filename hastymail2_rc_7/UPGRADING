@@ -1,0 +1,15 @@
+FROM RC6 to RC7
+---------------
+
+- Moved the filesystem_delim setting to the index.php file because we need to
+  use it before we have access to the site config values. If you were using
+  this option in the hastymail2.conf file you will need to set it to the correct
+  delimiter in the main index.php file instead. The default is still "/"
+- Expanded the alt_<nunmber> options in the configuration file to override any
+  setting, not just IMAP related settings. This way different IMAP server logins
+  can have different SMTP server settings, or different general settings.
+- Added icons for the main menu to the buuf theme which requires templates, and
+  the theme's entry in the hastymail2.conf file needs to be updated to the following:
+
+    theme = buuf,true,true,true
+

@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>The Mathematical Guts of RSA Encryption</title>
+</head>
+
+<body bgcolor="#f8ddc2" text="#000000" link="#800000" vlink="#0000b0" alink="#FF0000">
+<a href="./">
+<img border=0 alt="" src="http://world.std.com/images/arrows/uparrw.gif">
+Up to <em>Cryptography</em></a>
+
+<hr>
+
+<H1 align=center>The Mathematical Guts of RSA Encryption</H1>
+
+The RSA algorithm was invented in 1978 by <a
+href="http://theory.lcs.mit.edu/~rivest/">Ron Rivest</a>, Adi Shamir, and
+Leonard Adleman. <p>
+
+Here's the relatively easy to understand math behind RSA public key
+encryption.  It is most ironic that it is <em>not</em> illegal to transport
+this mathematical description out of the U.S. and Canada, but it <em>is</em>
+illegal to export an implementation of this cipher from the U.S. or Canada.
+Any competant programmer could use this knowledge to implement a strong crypto
+product beyond the borders of the U.S. and Canada.  <p>
+
+<OL>
+<li>Find <em>P</em> and <em>Q</em>, two large (e.g., 1024-bit) prime
+numbers. <p>
+
+<li>Choose <em>E</em> such that <em>E</em> is less than <em>PQ</em>,
+and such that <em>E</em> and <em>(P-1)(Q-1)</em> are <em>relatively
+prime</em>, which means they have no prime factors in common.
+<em>E</em> does not have to be prime, but it must be odd.
+<em>(P-1)(Q-1)</em> can't be prime because it's an even number. <p>
+
+<li>Compute <em>D</em> such that <em>(DE - 1)</em> is evenly divisible by
+<em>(P-1)(Q-1)</em>.  Mathematicians write this as <em>DE = 1 mod
+(P-1)(Q-1)</em>, and they call <em>D</em> the <em>multiplicative inverse</em>
+of <em>E</em>. <p>
+
+<li>The encryption function is <em>encrypt(T) = (T^E) mod PQ</em>, where
+<em>T</em> is the plaintext (a positive integer) and '^' indicates
+exponentiation. <p>
+
+<li>The decryption function is <em>decrypt(C) = (C^D) mod PQ</em>, where
+<em>C</em> is the ciphertext (a positive integer) and '^' indicates
+exponentiation. <p>
+</OL>
+
+Your <em>public key</em> is the pair <em>(PQ, E)</em>.  Your <em>private
+key</em> is the number <em>D</em> (reveal it to no one).  The product
+<em>PQ</em> is the <em>modulus</em>.  <em>E</em> is the <em>public
+exponent</em>.  <em>D</em> is the <em>secret exponent</em>. <p>
+
+You can publish your public key freely, because there are no known easy
+methods of calculating <em>D</em>, <em>P</em>, or <em>Q</em> given only
+<em>(PQ, E)</em> (your public key).  If <em>P</em> and <em>Q</em> are each
+1024 bits long, the sun will burn out before the most powerful computers
+presently in existence can factor your modulus into <em>P</em> and <em>Q</em>.
+<p>
+
+<H2 align=center>Caveats</H2>
+
+Given all the hype that RSA is getting these days, it's worth it to keep the
+following caveats in mind.  It is not yet rigorously proven that no easy
+methods of factoring exist.  Also, it is not yet rigorously proven that the
+only way to crack RSA is to factor the modulus. <p>
+
+<hr width=60% size=5>
+
+<H2 align=center>RSA in 2 Lines of Perl</H2>
+
+Adam Back <A
+HREF="mailto:aba@dcs.exeter.ac.uk">&lt;aba@dcs.exeter.ac.uk&gt;</a> has
+created <a href="http://dcs.ex.ac.uk/~aba/rsa/">an implementation of
+RSA in just 2 lines of Perl</a>.  It uses <KBD>dc</KBD>, an arbritrary
+precision arithmetic package that ships with most UNIX systems.  Here's the
+Perl code: <p>
+
+<blockquote>
+<pre>
+print pack"C*",split/\D+/,`echo "16iII*o\U@{$/=$z;[(pop,pop,unpack"H*",&lt;&gt;
+)]}\EsMsKsN0[lN*1lK[d2%Sa2/d0&lt;X+d*lMLa^*lN%0]dsXx++lMlN/dsM0&lt;J]dsJxp"|dc`
+</pre>
+</blockquote>
+
+<hr align=left size=1 width="25%">
+<address>
+Copyright &copy; Francis Litterio</a> (<a href="../email.html">Send me email</a>)
+</address>
+</body>
+</html>
+

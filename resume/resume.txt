@@ -1,0 +1,157 @@
+Resume for Richard John NEISH
+
+Born Kingston Jamaica 11th March, 1974
+
+Contact Address
+41A Lennox Road,
+London,
+N4 3JA
+UK
+Home +44 (0)20 7272 9281
+Mobile +44 (0)77 2916 7059
+Email: richardneish@email.com
+
+Skills
+Programming Languages: Java, C/C++, SQL, Perl, Visual Basic, UNIX shell 
+                       script, TCL
+Operating Systems: GNU/Linux (esp Red Hat), Sun Solaris, SCO OpenServer, 
+                   Microsoft Windows NT/2000
+Tools / Applications: Java 2, Jakarta Tomcat, Sun Forte, Jakarta 
+                      Velocity, Apache HTTPD, Informix, Samba, CVS, 
+                      Oracle, Postgres, Emacs, LaTex, Microsoft Visual 
+                      Studio 6, Macromedia Dreamweaver 4
+Other Technologies / Keywords: TCP/IP, DNS, SMTP, JDBC, NFS, SMB, NIS, 
+                               LDAP, HTML, CGI, XML, XSLT
+Other Skills: Familiar with PC and Sun workstation hardware, 
+              Jamaican Private Pilot's Licence.
+
+Goals
+To identify and apply appropriate technology for solving real-world 
+problems.  Buzzwords, hype and marketing aside, to select or develop 
+systems based on the needs of the business and the technical merits 
+of the solution.
+
+Experience
+September 2002 – present
+UNIX Technical Support,
+Cisco Systems,
+Reading, UK
+
+Monitor and administer Solaris-based network monitoring equipment for 
+ISPs and large enterprises throughout Europe, the Middle East and 
+Africa.  Remotely manage dozens of servers.  Tasks include configuring 
+network settings, installing and upgrading software, installing 
+security patches and configuring network services including syslog, 
+NFS and Samba.  Support Cisco Engineers by phone, email and site 
+visits as needed.  Participate in bug review process and document 
+technical processes.
+
+September 1999 - June 2002
+Partner and Senior Developer,
+RMP & Associates,
+Kingston, Jamaica
+
+As a director for this small consulting and systems development firm, 
+worked in a wide variety of roles including systems design and 
+implementation, programming, network optimisation and security and 
+database and network administration. Projects completed include:
+- Remotely administer internet server systems, including a Linux web 
+  server serving over 200GB of traffic per month and a web-based 
+  email system with 6000+users.
+- Designed and developed a Java-based payroll system. The system is 
+  completely data-driven, storing payroll formulae as first-class data 
+  items, allowing the system to be tailored to any system of deductions 
+  or taxes. The system is implemented in Java2 with an Informix 
+  backend, and is currently deployed on both Windows 2000 Server and 
+  RedHat Linux platforms.
+- WAN Network security and optimization for a Jamaican bank comprising 
+  28 branch offices and 2 data centres connected by a TCP/IP network 
+  running over leased line. Collaborated with bank IT staff on system 
+  documentation and security and reported on same to senior management.
+- Designed and implemented a Perl-based CGI system for online 
+  publishing for a large Jamaican newspaper. Migrated an existing 
+  offline system to a database-backed, template-driven publishing 
+  system, including mass email publishing and archive searching. Later 
+  additions to this project, including the archive search interface, 
+  were implemented using Java Servlets.
+- Designed and developed front-end system for interfacing with 
+  Informix 4GL legacy code. Interfaces include an Interactive Voice 
+  Response system and a Java servlet-based web application.
+
+September - December 2000 and January - May 2002
+Lecturer,
+Department of Mathematics and Computer Science, 
+University of the West Indies,
+Kingston, Jamaica
+
+Developed and presented a course entitled "Advanced Operating Systems". 
+This course formed one component of the universities MSc Programme 
+in Computer Science.
+
+September 1997 - August 1999
+UNIX Systems Administrator,
+Digital Systems Processing / Image Formation and Processing groups,
+University of Illinois, USA.
+
+Maintained a laboratory and network comprised of 50+ UNIX workstations 
+and servers. Systems included Solaris, SunOS and HP/UX servers and 
+workstations in addition to PC and Macintosh workstations and printers, 
+connected by an Ethernet running TCP/IP and AppleTalk. I am responsible 
+for installing and configuring software packages and services, 
+including HTTPD, NIS, NFS, TeX, the X Window System, Matlab, and 
+others.
+
+June 1998 - August 1998
+Data Management Specialist,
+Business Link LCP,
+London, England
+
+Transitioned a large database application from Novell Netware to 
+Windows NT and upgraded from Oracle 5 to Oracle 7. Rolled out upgraded 
+system to 100+ clients in three offices, with zero lost work or data. 
+Converted all reports and queries to new system and set up training 
+facilities for staff.
+
+May 1995 - January 1997
+Senior Programmer,
+Advanced Integrated Systems,
+Kingston, Jamaica
+
+Major projects completed include a proposed National Identification 
+Card system for the Government of Jamaica, a general purpose ID 
+production system and a printing subsystem for the Registrar of 
+Births, Deaths and Marriages,  Government of Jamaica.I developed front 
+ends for Informix and SQL Server databases, in Visual Basic and using 
+HTML and CGI scripts.
+
+May-June 1995 and May-June 1996
+Lecturer,
+Department of Management Studies,
+University of the West Indies,
+Kingston, Jamaica
+
+I developed and presented a 4 week course entitled Introduction to 
+Windows Programming using Visual Basic. The course was presented as 
+part of the University's C-MIS programme.
+
+Education
+September 1997 - August 1999
+University of Illinois at Urbana-Champaign,
+Urbana, Illinois, USA
+Completed MSc in Computer Science August 1999
+
+September 1992 - June 1995
+University of the West Indies, Mona Campus,
+Kingston, Jamaica
+Completed BSc in Computer Science and Electronics June 1995
+
+September 1985 - June 1992
+Campion College High School
+Kingston, Jamaica
+Completed 9 'O' Levels July 1990, 4 'A' Levels July 1992
+
+Professional memberships
+Association of Computing Machinery (ACM) Member since 1999
+
+Hobbies
+Sailing, Hiking, Running, Ultimate Frisbee, Flying

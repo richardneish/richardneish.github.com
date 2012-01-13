@@ -1,0 +1,97 @@
+<html>
+  <body bgcolor="white">
+    <title>Bookmarks</title>
+    <h1>Bookmarks</h1>
+    <a href="?action=restart">Restart</a> <a href="?action=new">New</a> <a href="?action=write">Save list</a><br>
+    Jump to category: 
+<?php
+  foreach ($_SESSION['categories'] as $category)
+  {
+?>
+    <a href="#<?= urlencode($category) ?>"><?= $category ?></a>
+<?php
+  }
+?>
+    <br>
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr bgcolor="#cccccc">
+        <th align="center"><font color="white"><a href="?action=list">Num</a></font></th>
+        <th align="left"><font color="white"><a href="?action=sort&sort=category">Category</a></font></th>
+        <th align="left"><font color="white"><a href="?action=sort&sort=description">Description</a></font></th>
+        <th align="center"><font color="white"><a href="?action=sort&sort=createdTimestamp">Created</a></font></th>
+        <th align="center"><font color="white"><a href="?action=sort&sort=lastVisitedTimestamp">Last visited</a></font></th>
+        <th align="center"><font color="white"><a href="?action=sort&sort=visitCount">Visit count</a></font></th>
+        <th align="center"><font color="white">&nbsp;</font></th>
+      </tr>
+<?php
+  $oldCategory = '';
+  $lineNum = 0;
+  foreach ($_SESSION['links'] as $link)
+  {
+    $lineNum++;
+    if ($link->category != $oldCategory)
+    {
+?>
+<?php
+      if ($oldCategory != '')
+      {
+?>
+      <tr>
+        <td colspan="6">
+      <a name="<?= urlencode($link->category) ?>"></a>
+          <hr>
+        </td>
+      </tr>
+<?php
+      }
+?>
+<?php
+      $oldCategory = $link->category;
+    }
+?>
+      <tr<?= $lineNum % 2 == 0 ? ' bgcolor="#d3d3d3"' : '' ?>>
+        <td>
+          <?= $link->index ?>
+        </td>
+        <td>
+          <?= $link->category ?>
+        </td>
+        <td>
+          <a href="?action=visit&index=<?= $link->index ?>&url=<?= urlencode($link->url) ?>"><?= $link->description ?></a>
+        </td>
+        <td align="center">
+          <?=
+            $link->createdTimestamp == 0 ?
+              '[never]' :
+              date('Y-m-d H:i', $link->createdTimestamp)
+          ?>
+        </td>
+        <td align="center">
+          <?=
+            $link->lastVisitedTimestamp == 0 ?
+              '[never]' : 
+              date('Y-m-d H:i', $link->lastVisitedTimestamp)
+          ?>
+        </td>
+        <td align="center">
+          <?= $link->visitCount ?>
+        </td>
+        <td align="center">
+          <a href="?action=edit&index=<?= $link->index ?>&url=<?= urlencode($link->url) ?>">Edit</a>
+          <a href="?action=confirmDel&index=<?= $link->index ?>&url=<?= urlencode($link->url) ?>">Delete</a>
+<?php
+  if ($lineNum > 1)
+  {
+?>
+          <a href="?action=moveUp&index=<?= $lineNum - 1; ?>&url=<?= urlencode($link->url) ?>">Move up</a>
+<?php
+  }
+?>
+        </td>
+      </tr>
+<?php
+  }
+?>
+    </table>
+  </body>
+</html>

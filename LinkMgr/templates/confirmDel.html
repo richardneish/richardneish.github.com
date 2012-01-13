@@ -1,0 +1,10 @@
+<html>
+<body bgcolor="#ffffff">
+DEBUG: PHP_SELF=<?= $PHP_SELF ?><br>
+Deleting bookmark <?= $_SESSION['links'][$index]->description; ?>
+(<?= $_SESSION['links'][$index]->url; ?>) from category 
+<?= $_SESSION['links'][$index]->category; ?><br>
+Are you sure? <a href="?action=delete&token=<?= $_SESSION['token']; ?>&index=<?= $index; ?>&url=<?= $_SESSION['links'][$index]->url; ?>&PHPSESSID=<?= $PHPSESSID; ?>">Yes, delete this bookmark</a> <a href="">No, cancel this deletion</a>
+</body>
+</html>
+

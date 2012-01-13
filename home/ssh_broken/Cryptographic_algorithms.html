@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Draft//EN">
+<HTML>
+<HEAD>
+<TITLE>Cryptographic Algorithms</TITLE>
+</HEAD>
+<BODY bgcolor="#a8a8c0">
+<H1>Cryptographic Algorithms</H1>
+<P>This page lists commonly used cryptographic algorithms and methods, and
+tries to give references to implementations and textbooks.  Where available,
+comments are also made about the usefulness or other aspects of the
+algorithms.  The comments should be interpreted as the author's subjective
+opinion and should not be considered authoritative in any way.</P>
+<P></P>
+<UL>
+<LI><A href="#asymmetric"> Public Key Algorithms </A>
+<LI><A href="#symmetric"> Secret Key Algorithms </A>
+<LI><A href="#modes"> Block Cipher Modes </A>
+<LI><A href="#hash"> Cryptographic Hash Functions </A>
+<LI><A href="#random"> Random Number Generators </A>
+</UL>
+
+<HR>
+<H2><A name="asymmetric"> Public Key Algorithms </A></H2>
+<P>Public key algorithms use a different key for encryption and decryption,
+and the decryption key cannot (practically) be derived from the encryption
+key.  Public key methods are important because they can be used to transmit
+encryption keys or other data securely even when the parties have no
+opportunity to agree on a secret key in private.  All known methods are quite
+slow, and they are usually only used to encrypt session keys (randomly
+generated "normal" keys), that are then used to encrypt the bulk of the data
+using a symmetric cipher (see below).</P>
+<P></P>
+<UL>
+<LI><A name="rsa"></A> <B>RSA</B> (Rivest-Shamir-Adelman) is the most commonly
+used public key algorithm.  Can be used both for encryption and for signing. 
+It is generally considered to be secure when sufficiently long keys are used
+(512 bits is insecure, 768 bits is moderately secure, and 1024 bits is good). 
+The security of RSA relies on the difficulty of factoring large integers. 
+Dramatic advances in factoring large integers would make RSA vulnerable.  RSA
+is currently the most important public key algorithm.  It is patented in the
+United States (expires year 2000), and free elsewhere.
+<P>For information on the recommended key lengths for RSA, see the <A
+href="rsa-key-length-recommendations"> article by Bruce Schneier</A>. At
+present, 512 bit keys are considered weak, 1024 bit keys are probably secure
+enough for most purposes, and 2048 bit keys are likely to remain secure for
+decades.</P>
+<P>One should know that RSA is very vulnerable to <A
+href="intro.html#chosen-plaintext"> chosen plaintext attacks</A>. There is
+also a new <A href="intro.html#timing-attack"> timing attack</A> that can be
+used to break many implementations of RSA.  The RSA algorithm is believed to
+be safe when used properly, but one must be very careful when using it to
+avoid these attacks.</P>
+<P>Many implementations of RSA are freely available.  See e.g. <A
+href="software.html#rsaref"> RSAREF </A>, <A href="software.html#rsaeuro">
+RSAEURO</A>, <A href="software.html#ssleay">SSLeay</A>, <A
+href="software.html#pgp"> PGP </A> source code, <A href="software.html#ssh">
+Ssh </A> source code, and the <A href="software.html#crypto++"> Crypto++ </A>
+library. See also <A
+href="ftp://ftp.funet.fi/pub/crypt/cryptography/asymmetric/rsa">
+ftp.funet.fi:/pub/crypt/cryptography/asymmetric/rsa. </A></P>
+<P>For more information, see e.g.</P>
+<UL>
+<LI>Bruce Schneier: Applied Cryptography.  John Wiley &amp; Sons, 1994.
+<LI>Jennifer Seberry and Josed Pieprzyk: Cryptography: An Introduction to
+Computer Security.  Prentice-Hall, 1989.
+<LI>Man Young Rhee: Cryptography and Secure Data Communications. McGraw-Hill,
+1994.
+<LI>R. Rivest, A. Shamir, and L. M. Adleman: Cryptographic Communications
+System and Method.  US Patent 4,405,829, 1983.  <A
+href="4405829.rivest-shamir-adleman"> (Available here.) </A>
+<LI>Hans Riesel: Prime Numbers and Computer Methods for Factorization. 
+Birkhauser, 1994.
+<LI>The RSA Frequently Asked Questions document by RSA Data Security, Inc.,
+1995. <A href="rsa-faq"> (Available here.) </A>
+<LI>RSA in 3 lines of perl by Adam Back &lt;aba@atlax.ex.ac.uk>, 1995. 
+Available <A href="rsa-in-3-lines-of-perl"> here. </A>
+<LI><A href="http://rschp2.anu.edu.au:8080/crypt.html"> Sherry Mayo's
+cryptography page </A> contains a description of RSA.
+</UL>
+<P></P>
+<LI><A name="diffie-hellman"></A> <B>Diffie-Hellman</B> is a commonly used
+public-key algorithm for key exchange.  It is generally considered to be
+secure when sufficiently long keys and proper generators are used.  The
+security of Diffie-Hellman relies on the difficulty of the discrete logarithm
+problem (which is believed to be computationally equivalent to factoring large
+integers). Diffie-Hellman is claimed to be patented in the United States, but
+the patent expires April 29, 1997.  There are also strong rumors that the
+patent might in fact be invalid (there is evidence of it having been published
+over an year before the patent application was wiled).
+<P>Diffie-Hellman is sensitive to the choice of the strong prime and the
+generator.  One possible prime/generator pair is suggested in the <A
+href="ipsec/draft-ietf-ipsec-photuris-02.txt"> Photuris draft</A>. The size of
+the secret exponent is also important for its security. Conservative advice is
+to make the random exponent twice as long as the intended session key.</P>
+<P>One should note the results presented in Brian A. LaMacchia and Andrew M.
+Odlyzko, <A href="http://www-swiss.ai.mit.edu/~bal/"> Computation of Discrete
+Logarithms in Prime Fields</A>, Designs, Codes and Cryptography 1 (1991),
+47-62.  Basically, they conclude that by doing precomputations, it is possible
+to compute discrete logarithms relative to a particular prime efficiently. 
+The work needed for the precomputation is approximately equal or slightly
+higher than the work needed for factoring a composite number of the same size.
+ In practice this means that if the same prime is used for a large number of
+exchanges, it should be larger than 512 bits in size, preferably 1024
+bits.</P>
+<P>There is also a new <A href="intro.html#timing-attack"> timing attack</A>
+that can be used to break many implementations of Diffie-Hellman.</P>
+<P>Many implementations of Diffie-Hellman are freely available.  See e.g. <A
+href="software.html#rsaref"> RSAREF</A>, <A
+href="software.html#rsaeuro">RSAEURO</A>, <A href="software.html">SSLeay</A>,
+<A href="software.html#alodes">alodes</A>, or <A
+href="software.html#crypto++"> Crypto++</A>.</P>
+<P>For further information, see e.g.</P>
+<UL>
+<LI>Bruce Schneier: Applied Cryptography.  John Wiley &amp; Sons, 1994.
+<LI>Jennifer Seberry and Josed Pieprzyk: Cryptography: An Introduction to
+Computer Security.  Prentice-Hall, 1989.
+<LI>Man Young Rhee: Cryptography and Secure Data Communications. McGraw-Hill,
+1994.
+<LI>M. E. Hellman and R. C. Merkle: Public Key Cryptographic Apparatus and
+Method.  US Patent 4,218,582, 1980.  <A href="4212582.hellman-merkle.part">
+(Beginning available here.) </A>
+<LI>The RSA Frequently Asked Questions document by RSA Data Security, Inc.,
+1995. <A href="rsa-faq"> (Available here.) </A>
+</UL>
+<P></P>
+<P><B><A name="elliptic">Elliptic curve public key cryptosystems</A></B> is an
+emerging field.  They have been slow to execute, but have become feasible with
+modern computers.  They are considered to be fairly secure, but haven't yet
+undergone the same scrutiny as for example RSA.</P>
+<P>For further information, see e.g.</P>
+<UL>
+<LI>Bruce Schneier: Applied Cryptography, 2nd edition.  John Wiley &amp; Sons,
+1995.
+<LI>IEEE P1363 Draft Standard on <A href="p1363-draft.ps"> Elliptic Curve
+Cryptosystems and Related Methods</A>.
+<LI><A href="http://www.math.ucl.ac.be/~joye/biblio_ell.html">Marc Joye's Page
+about elliptic curves</A> (links and references).
+</UL>
+<P>Several public domain implementations are available.  See e.g. the <A
+href="software.html#eliptic">eliptic</A> package.</P>
+<P></P>
+<LI><A name="dss"></A> <B>DSS</B> (Digital Signature Standard).  A
+signature-only mechanism endorsed by the United States Government. Its design
+has not been made public, and many people have found potential problems with
+it (e.g., leaking hidden data the signature, and revealing your secret key if
+you ever happen to sign two different messages using the same random number). 
+It was recently patented by the US government, and there is also another
+patent on it, which is licensed at an initial payment of USD 25.000 plus
+royalties in US and Europe.
+<P>There should be no reason whatsoever to use DSS for anything (with the
+potential exclusion of US government contracts) since better methods are
+widely available.  DSS source code is included in in the <A
+href="software.html#crypto++"> Crypto++ </A> library.</P>
+<P></P>
+<LI><A name="elgamal"></A> <B>ElGamal</B> public key cryptosystem.  Based on
+the discrete logarithm problem.  See e.g. Bruce Schneier: Applied
+Cryptography, John Wiley and Sons, 1994.  Elgamal source code is included in
+the <A href="software.html#crypto++"> Crypto++ </A> library.
+<P></P>
+<LI><A name="luc"></A> <B>LUC</B> is a public key encryption system. A short
+description is in <A href="luc-algorithm.txt"> luc-algorithm.txt</A>.  It uses
+Lucas functions instead of exponentiation. It's inventor Peter Smith has since
+then implemented four other algorithms with Lucas functions: LUCDIF, a key
+negotiation method like Diffie-Hellman; LUCELG PK, equivalent to El Gamal
+public-key encryption; LUCELG DS, equivalent to El Gamal digital signature;
+and LUCDSA, equivalent to the US Digital Siganture Standard. LUC Encryption
+Technology Ltd (LUCENT) has obtained patents for cryptographic use of Lucas
+functions in United States and New Zealand.
+<P>Source code can be found in <A
+href="ftp://ftp.funet.fi/pub/crypt/cryptography/asymmetric/luc/">
+ftp.funet.fi:/pub/crypt/cryptography/asymmetric/luc </A> and is included in
+the <A href="software.html#crypto++"> Crypto++ </A> library.</P>
+<P></P>
+</UL>
+<H2><A name="symmetric"> Secret Key Algorithms (Symmetric Ciphers) </A></H2>
+<P>Secret key algorithms use a the same key for both encryption and decryption
+(or the other is easily derivable from the other).</P>
+<P></P>
+<UL>
+<LI><A name="des"></A> <B>DES</B> is an algorithm developed in the 1970s.  It
+was made a standard by the US government, and has also been adopted by several
+other governments worldwide.  It is widely used, especially in the financial
+industry.
+<P>DES is a block cipher with 64-bit block size.  It uses 56-bit keys.  This
+makes it fairly easy to break with modern computers or special-purpose
+hardware.  DES is still strong enough to keep most random hackers and
+individuals out, but it is easily breakable with special hardware by
+government, criminal organizations, or major corporations.  In large volumes,
+the cost of beaking DES keys is on the order of tens of dollars.  DES is
+getting too weak, and should not be used in new designs.</P>
+<P>A variant of DES, Triple-DES or <B>3DES</B> is based on using DES three
+times (normally in an encrypt-decrypt-encrypt sequence with three different,
+unrelated keys).  Many people consider Triple-DES to be much safer than plain
+DES.</P>
+<P>Implementations of DES can be found e.g. in the <A
+href="software.html#libdes"> libdes</A>, <A href="software.html#alodes">
+alodes</A>, <A href="software.html#ssleay"> SSLeay</A>, <A
+href="software.html#crypto++"> Crypto++</A>, <A href="software.html#descore">
+descore</A>, <A href="software.html#chalmers-des"> chalmers-des</A>, and <A
+href="software.html#destoo"> destoo</A> libraries.</P>
+<P></P>
+<LI><A name="blowfish"></A> <B>Blowfish</B> is an algorithm developed by Bruce
+Schneier.  It is a block cipher with 64-bit block size and variable length
+keys (up to 448 bits).  It has gained a fair amount of acceptance in a number
+of applications.  No attacks are known against it.  (Note: <A
+href="blowfish-bug"> some implementations of blowfish contain a serious
+implementation bug.</A>)
+<P>Blowfish is used in a number of popular software packages, including
+Nautilus and PGPfone.  Implementations of Blowfish can be found e.g. in the <A
+href="software.html#crypto++"> Crypto++</A> library, and <A href="blowfish.c">
+here</A>.</P>
+<P></P>
+<LI><A name="idea"></A> <B>IDEA</B> (International Data Encryption Algorithm)
+is an algorithm developed at ETH Zurich in Switzerland.  It uses a 128 bit
+key, and it is generally considered to be very secure.  It is currently one of
+the best public known algorithms.  It is a fairly new algorithm, but it has
+already been around for several years, and no practical attacks on it have
+been published despite of numberous attempts to analyze it.
+<P>IDEA is patented in the United States and in most of the European
+countries.  The patent is held by Ascom-Tech.  Non-commercial use of IDEA is
+free.  Commercial licenses can be obtained by contacting idea@ascom.ch.</P>
+<P>Several implementations of IDEA are freely available.  See e.g. <A
+href="software.html#ssleay">SSLeay</A>, <A href="software.html#pgp">PGP</A>
+source code, and <A href="software.html#ssh">Ssh</A> source code, <A
+href="software.html#idea86">idea86</A>, <A
+href="software.html#crypto++">Crypto++</A>.</P>
+<P></P>
+<LI><A name="rc4"></A> <B>RC4</B> is a cipher designed by RSA Data Security,
+Inc.  It used to be a trade secret, until someone posted source code for an
+algorithm in Usenet News, claiming it to be equivalent to RC4.  There is very
+strong evidence that the posted algorithm is indeed equivalent to RC4.  The
+algorithm is very fast.  Its security is unknown, but breaking it does not
+seem trivial either.  Because of its speed, it may have uses in certain
+applications.  It can also accept keys of arbitrary length.  RC4 is
+essentially a pseudo random number generator, and the output of the generator
+is xored with the data stream.  For this reason, it is very important that the
+same RC4 key never be used to encrypt two different data streams.
+<P>Source code and information about RC4 can be found <A href="rc4"> here</A>
+and in many cryptographic libraries, e.g. <A
+href="software.html#ssleay">SSLeay</A>, <A
+href="software.html#crypto++">Crypto++</A>, and <A
+href="software.html#ssh">Ssh</A> source code.</P>
+<P>The United States government routinely approves RC4 with 40 bit keys for
+export.  Keys that are this small can be easily broken by governments,
+criminals, and amateurs.</P>
+<P>It is interesting to know that the exportable version of SSL (Netscape's
+Secure Socket Layer), which uses RC4-40, was recently broken by at least two
+independent groups.  Breaking it took about eight days; in many major
+universities (or companies) the corresponding amount of computing power is
+available to any computer science major.  More information about the incident
+can be found on <A href="http://pauillac.inria.fr/~doligez/ssl/">Damien
+Doligez's SSL cracking page </A>, and a collection of various articles is in
+<A href="rc4-breaking"> a local file</A>.</P>
+<P></P>
+<LI><A name="safer"></A> <B>SAFER</B> is an algorithm developed by J. L.
+Massey (one of the developers of IDEA).  A <A href="safer/safer_1.ps"> paper
+describing it </A> was published recently.  It is claimed to provide secure
+encryption with fast software implementation even on 8-bit processors.  Two
+variants are available, one for 64 bit keys and the other for 128 bit keys. 
+An implementation is in <A
+href="ftp://ftp.funet.fi/pub/crypt/cryptography/symmetric/safer">
+ftp.funet.fi:/pub/crypt/cryptography/symmetric/safer</A>.
+<P>An analysis of SAFER-K64 was presented in Crypto'95 and is in the
+proceedings.</P>
+<P></P>
+<LI><B>Ciphers based on a hash function</B>.  Any cryptographically strong
+hash function (see below) can be turned into a cipher.  There are several
+possible arrangements; the general idea is that the hash function is used as a
+random number generator, and the hash value is xored with the data to be
+encrypted.  When all bytes of the hash value have been used, a new hash value
+is obtained by modifying the key (or whatever was hashed) somehow, and taking
+a hash of that.  The data to be hashed may include a key, the previous hash
+value, a sequence number, previous plaintext, etc.
+<P>An example of a hash-based cipher is MDC/SHA; code can be found e.g. in the
+<A href="software.html#crypto++"> Crypto++ </A> library.</P>
+<P></P>
+<LI><A name="enigma"></A> <B>Enigma</B> was the cipher used by the Germans in
+World War II. It is trivial to solve with modern computers; see the <A
+href="software.html#cbw"> Crypt Breaker's Workbench</A> tool.  This cipher is
+used by the unix crypt(1) program, which should thus not be used.
+<P></P>
+<LI><A name="vigenere"></A> <B>Vigenere</B> is a historical cipher mentioned
+in many textbooks.  It is easily solvable; a <A
+href="software.html#solve-vigenere"> program for this </A> is freely
+available.
+<P></P>
+<LI>Several <B>other classical ciphers</B> are described in <A
+href="http://rschp2.anu.edu.au:8080/cipher.html">
+http://rschp2.anu.edu.au:8080/cipher.html</A>.  These ciphers should not be
+used because they are not secure.
+<P></P>
+</UL>
+<P>These and a number of other ciphers are available from <A
+href="ftp://ftp.funet.fi/pub/crypt/cryptography/symmetric">
+ftp.funet.fi:/pub/crypt/cryptography/symmetric </A>.</P>
+<P></P>
+<H2><A name="modes"> Block Cipher Modes </A></H2>
+<P>Many commonly used ciphers (e.g., IDEA, DES, BLOWFISH) are block ciphers. 
+This means that they take a fixed-size block of data (usually 64 bits), an
+transform it to another 64 bit block using a function selected by the key. 
+The cipher basically defines a one-to-one mapping from 64-bit integers to
+another permutation of 64-bit integers.</P>
+<P>If the same block is encrypted twice with the same key, the resulting
+ciphertext blocks are the same (this method of encryption is called Electronic
+Code Book mode, or <B>ECB</B>).  This information could be useful for an
+attacker.</P>
+<P>In practical applications, it is desirable to make identical plaintext
+blocks encrypt to different ciphertext blocks.  Two methods are commonly used
+for this:</P>
+<UL>
+<LI><B>CFB</B> mode: a ciphertext block is obtained by encrypting the previous
+ciphertext block, and xoring the resulting value with the plaintext.
+<LI><B>CBC</B> mode: a ciphertext block is obtained by first xoring the
+plaintext block with the previous ciphertext block, and encrypting the
+resulting value.
+</UL>
+<P>The previous ciphertext block is usually stored in an Initialization Vector
+(IV).  An initialization vector of zero is commonly used for the first block,
+though other arrangements are also in use.</P>
+<P>More information on cipher modes can be found e.g. in Bruce Schneier:
+Applied Cryptography, John Wiley &amp; Sons, 1994.</P>
+<H2><A name="hash"> Cryptographic Hash Functions </A></H2>
+<UL>
+<LI><A name="md5"></A> <B>MD5</B> (Message Digest Algorithm 5) is a secure
+hash algorithm developed at RSA Data Security, Inc.  It can be used to hash an
+arbitrary length byte string into a 128 bit value.  MD5 is in wide use, and is
+considered reasonable secure.
+<P>However, some people have reported potential weaknesses in it, and "keyed
+MD5" (typically used for authentication by having a shared secret, and
+computing an authentication value by hashing first the secret (as a key), and
+then the data to be hashed) has been reported to be broken.  It is also
+reported that one could build a special-purpose machine costing a few million
+dollars to find a plaintext matching given hash value in a few weeks.</P>
+<P>MD5 is available from <A href="ftp://ftp.funet.fi/pub/crypt/hash/mds/md5">
+ftp.funet.fi:/pub/crypt/hash/mds/md5 </A>.  It is also included in <A
+href="software.html#pgp">PGP</A> source code, <A
+href="software.html#ssleay">SSLeay</A>, <A
+href="software.html#rsaref">RSAREF</A>, <A
+href="software.html#crypto++">Crypto++</A>, and <A
+href="software.html#ssh">Ssh</A> source code. MD5 is described e.g. in Bruce
+Schneier: Applied Cryptography, John Wiley &amp; Sons, 1994.</P>
+<P></P>
+<LI><B>MD2</B>, <B>MD4</B>: These are older hash algorithms from RSA Data
+Security.  They have known flaws, and their use is not recommended.  Source
+code for MD2 is included at least in <A href="software.html#ssleay">SSLeay</A>
+and <A href="software.html#rsaref">RSAREF</A> on the <A href="software.html">
+software page</A>.  They are also available from <A
+href="ftp://ftp.funet.fi/pub/crypt/hash/mds"> ftp.funet.fi:/pub/crypt/hash/mds
+</A>.
+<P></P>
+<LI><A name="sha"></A> <B>SHA</B> (Secure Hash Algorithm) (also <B>SHS</B>,
+Secure Hash Standard): This is a cryptographic hash algorithm published by the
+United States Government.  It produces an 160 bit hash value from an arbitrary
+length string.  Many people consider it quite good.  It is a fairly new
+algorithm.
+<P>SHA is available from <A href="ftp://ftp.funet.fi/pub/crypt/hash/sha">
+ftp.funet.fi:/pub/crypt/hash/sha</A>, and is included in many cryptographic
+libraries, such as <A href="software.html#crypto++">Crypto++</A>.</P>
+<P></P>
+<LI><B> Tiger</B> is a new hash algorithm developed by Anderson and Biham. It
+is available from <A
+href="ftp://ftp.funet.fi/pub/crypt/hash/tiger">ftp.funet.fi:/pub/crypt/hash/tiger</A>.
+<P></P>
+<LI>Most recent hash algorithm is <B>RIPEMD-160</B>, which is designed to
+replace MD4 and MD5. It produces a digest of 20 bytes, reportedly runs at 40
+Mb/s on a 90 MHz Pentium and has been placed in the public domain by its
+designers. <A href="rmd160.zip">(Source code)</A>
+<P></P>
+</UL>
+<H2><A name="random"> Random Number Generators </A></H2>
+<P>Cryptographic systems need cryptographically strong random numbers that
+cannot be guessed by an attacker.  Random numbers are typically used to
+generate session keys, and their quality is critical for the quality of the
+resulting systems.  The random number generator is easily overlooked, and
+becomes the weakest point of the system.</P>
+<P>Some machines may have special purpose hardware noise generators. Noise
+from the leak current of a diode or transistor, least significant bits of
+audio inputs, times between interrupts, etc. are all good sources of
+randomness when processed with a suitable hash function.  It is a good idea to
+acquire true environmental noise whenever possible.</P>
+<P>Examples of cryptographic random number generators can be found e.g. in <A
+href="software.html#pgp">PGP</A> source code, <A
+href="software.html#noiz">Noiz</A>, and <A href="software.html#ssh">Ssh</A>
+source code.</P>
+<P>Disclaimer: Any opinions and evaluations presented here are speculative,
+and the author cannot be held responsible for their correctness.</P>
+<P></P>
+</BODY>
+</HTML>

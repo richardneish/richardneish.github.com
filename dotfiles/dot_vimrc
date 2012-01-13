@@ -1,0 +1,14 @@
+" Vim settings for RJN
+version 5.0
+set autoindent
+set background=dark
+set cmdheight=2
+set incsearch
+set hlsearch
+set ruler
+set showcmd
+set showmode
+set splitbelow
+set visualbell
+set warn
+syntax on

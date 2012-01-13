@@ -1,0 +1,43 @@
+<html>
+  <body bgcolor="white">
+    <title>Bookmarks</title>
+    <h1>Bookmarks</h1>
+    <form method="GET">
+      <input type="hidden" name="action" value="list">
+      Sort order: <select name="sortOrder">
+        <option value=""<?= $sortOrder == '' ? ' selected' : '' ?>>
+          Not sorted (natural order)
+        </option>
+        <option value="category"<?= $sortOrder == 'category' ? ' selected' : '' ?>>
+          Category
+        </option>
+      </select>
+      <input type="submit" label="Sort">
+    </form>
+<?php
+  $oldCategory = '';
+  foreach ($links as $link)
+  {
+    if ($link->category != $oldCategory)
+    {
+      if ($oldCategory != '')
+      {
+?>
+    </ul>
+    <hr align="center" width="50%">
+<?php
+      }
+?>
+    <h2><?= $link->category ?></h2>
+    <ul>
+<?php
+      $oldCategory = $link->category;
+    }
+?>
+      <li><?= $link->description ?></li>
+<?php
+  }
+?>
+    </ul>
+  </body>
+</html>

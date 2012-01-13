@@ -1,0 +1,3 @@
+#!/bin/sh
+echo -e 'Content Type: text/plain\015\012\015\012'
+echo Work in progress...

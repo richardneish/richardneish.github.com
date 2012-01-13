@@ -1,0 +1,14 @@
+/*
+  CSS snippets that may someday make it into a coherent style sheet.
+  Created: 2007-09-10
+  Author: Richard Neish
+  Changelog:
+    - 2007-09-10 initial creation, added #warning style
+*/
+
+#warning {
+  font-weight: bold;
+  font-size: larger;
+  color: red;
+}
+

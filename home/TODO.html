@@ -1,0 +1,150 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.04 [en] (X11; I; Linux 2.0.30 i586) [Netscape]">
+   <TITLE>Things to do</TITLE>
+<SCRIPT>
+<!--  Activate Cloaking Device
+//*******************************************************************************************
+//
+// Another Date & Time Display
+//
+// Developed by Timothy Wallace ,  timothy@essex1.com
+// Modified by Richard Neish (Fixed Y2K problem, put in Day Month Year form)
+//
+//******************************************************************************************
+
+// Global variables for timer.
+var timerID = null;
+
+var timerRunning = false;
+
+function startclock () 
+   {
+
+   // Make sure the clock is stopped
+   stopclock();
+   time();
+
+   }
+
+
+
+function stopclock ()
+   {
+   if(timerRunning)
+
+      clearTimeout(timerID);
+
+   timerRunning = false;
+
+   }
+
+function time ()
+   {
+
+   var now = new Date();
+   var yr = now.getYear();
+   var era = "19";
+   if(yr<80) era="20";
+
+   var mName = now.getMonth() + 1;
+   var dName = now.getDay() + 1;
+
+   var dayNr = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+   var hours = ((now.getHours() < 10) ? "0" : "") + now.getHours();
+
+   var minutes = ((now.getMinutes() < 10) ? ":0" : ":") + now.getMinutes();
+
+   if(dName==1) Day = "Sunday";
+   if(dName==2) Day = "Monday";
+   if(dName==3) Day = "Tuesday";
+   if(dName==4) Day = "Wednesday";
+   if(dName==5) Day = "Thursday";
+   if(dName==6) Day = "Friday";
+   if(dName==7) Day = "Saturday";
+
+   if(mName==1) Month="January";
+   if(mName==2) Month="February";
+   if(mName==3) Month="March";
+   if(mName==4) Month="April";
+   if(mName==5) Month="May";
+   if(mName==6) Month="June";
+   if(mName==7) Month="July";
+   if(mName==8) Month="August";
+   if(mName==9) Month="September";
+   if(mName==10) Month="October";
+   if(mName==11) Month="November";
+   if(mName==12) Month="December";
+
+
+   // String to display current date.
+
+   var DayOfWeek =(Day);
+
+   // String to display month, day, & year.
+
+   var DayMonthYear =(dayNr + " " + Month + " " + era + yr);
+
+   // String to display current time.
+
+   var TimeValue =(hours + minutes);
+   // Displays the current time.
+   document.forms[0].elements[0].value = DayOfWeek + ", " + DayMonthYear + ", " + TimeValue;
+
+   timerID = setTimeout("time()",1000);
+
+   timerRunning = true;
+   }
+// Deactivate Cloaking -->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" onLoad="startclock ()">
+
+<H2>
+Upcoming Events</H2>
+
+<CENTER><FORM>Current Date and Time:&nbsp;<INPUT TYPE="text" NAME="local" SIZE=50 VALUE="Date and Time"></FORM></CENTER>
+
+<TABLE BORDER WIDTH="75%" >
+<TR>
+<TD><B>Date</B></TD>
+
+<TD><B>Time</B></TD>
+
+<TD><B>Location</B></TD>
+
+<TD><B>Description</B></TD>
+</TR>
+<TR>
+<TD>07/05/99</TD>
+
+<TD></TD>
+
+<TD>place</TD>
+
+<TD>description</TD>
+</TR>
+
+
+<TR>
+<TD></TD>
+
+<TD></TD>
+
+<TD></TD>
+
+<TD></TD>
+
+<TR>
+<TD>11/05/99</TD>
+
+<TD>19:00-22:00</TD>
+
+<TD>DCL 1310</TD>
+
+<TD>CS 433 Final exam</TD>
+
+</TABLE>
+</BODY>
+</HTML>

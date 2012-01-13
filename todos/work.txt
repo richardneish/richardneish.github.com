@@ -1,0 +1,11 @@
+Subversion server:
+- Copy repository UUIDs from old server to rulesvn1 to make migration transparent.
+X- Schedule sync_repo every 15 minutes (once sync_repo --init is complete)
+X- Configure hotcopy to Poland
+X- Migrate repositories from svn.rulefinancial.com/192.168.13.31 to new server
+X- Add svn.accessrights to SVN
+- Add svn.accessrights to SVN with syntax check pre-commit hook
+- Update user and admin guides to match new configuration
+X- Fix sync_repo script to check exit code of svnadmin dump/load and report errors
+X- Dual authentication for SVN (nice-to-have)
+- Track down hotcopy machine 192.168.13.49

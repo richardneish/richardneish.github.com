@@ -1,0 +1,45 @@
+h1, h2, h3, h4, h5, h6 {
+   font-family: cursive;
+   color: black;
+   background: white;
+   text-align: center;
+}
+
+.journal {
+   background: white url(lines.gif);
+}
+
+.bodytext {
+   font-family: cursive;
+   color: black;
+   text-align: justify;
+   text-indent: 2em;
+   margin: 0 10%;
+}
+
+img.left {
+   margin-left: -10%;
+   margin-right: 5px;
+   float: left;
+}
+
+img.left_old {
+   margin-left: -10%;
+   margin-right: 5px;
+   float: left;
+}
+
+img.left {
+   float: left;
+}
+
+img.right_old {
+   margin-left: 5px;
+   margin-right: -10%;
+   float: right;
+}
+
+img.right {
+   float: right;
+}
+

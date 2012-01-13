@@ -1,0 +1,380 @@
+/* basic reset */
+html, body, div, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, blockquote, pre, form, fieldset, table, th, td {
+    margin: 0; padding: 0;
+}
+
+/* basic font and sizes */
+body {
+    font:14px/18px "Segoe UI", "Verdana", helvetica, sans-serif;
+    background-color:#FBFBFB;
+    width:100%;
+    min-width:50% !important;
+}
+h1 {
+    font-size:120%;
+    margin:0.2em 0 0.4em 0;
+}
+a {
+    text-decoration:none;
+}
+
+
+/* Main content areas, 3-column layout */
+/* column container */
+.colmask {
+    position:relative;      /* This fixes the IE7 overflow hidden bug */
+    clear:both;
+    float:left;
+    width:100%;             /* width of whole page */
+    overflow:hidden;        /* This chops off any overhanging divs */
+}
+/* common column settings */
+.colright,
+.colmid,
+.colleft {
+    float:left;
+    width:100%;             /* width of page */
+    position:relative;
+}
+.tasks,
+.projects,
+.tags {
+    float:left;
+    position:relative;
+    padding:0 0 1em 0;      /* no left and right padding on columns, we just make them narrower instead
+                            only padding top and bottom is included here, make it whatever value you need */
+    overflow:hidden;
+}
+/* 3 Column settings */
+.threecol {
+    background:#fff;        /* right column background colour */
+    border:1px solid #D7D5D4;
+    border-top:0;
+}
+.threecol .colmid {
+    right:12%;              /* width of the right column */
+    background:#fff;        /* center column background colour */
+    border-right:1px solid #D7D5D4;
+}
+.threecol .colleft {
+    right:70%;              /* width of the middle column */
+    background:#fff;     /* left column background colour */
+    border-right:1px solid #D7D5D4;
+}
+.threecol .tasks {
+    width:68%;              /* width of center column content (column width minus padding on either side) */
+    left:101%;              /* 100% plus left padding of center column */
+}
+.threecol .projects {
+    width:16%;              /* Width of left column content (column width minus padding on either side) */
+    left:15%;               /* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+}
+.threecol .tags {
+    width:10%;              /* Width of right column content (column width minus padding on either side) */
+    left:87%;               /* Please make note of the brackets here:
+                            (100% - left column width) plus (center column left and right padding)
+                            plus (left column left and right padding) plus (right column left padding) */
+}
+
+#frame {
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    border-top:0;
+    padding-bottom:0px;
+    text-align:left;
+    background:white;
+}
+
+#header {
+    background:#FFF url(img/header.png) bottom left repeat-x;
+    border:1px solid #D7D5D4;
+    padding:4px 10px;
+    margin-top:10px;
+    overflow:auto;
+}
+.left {
+   float:left;
+   width:360px;
+   vertical-align:middle;
+}
+.right {
+   float:right;
+   /*width:550px;*/
+   text-align:right; /* depends on element width */
+   vertical-align:middle;
+}
+/* the Taskpaper name and logo */
+#logo {
+    float:left;
+    width:175px;
+    margin:0;
+}
+#logo a img{
+    padding:0 2px;
+    border:0;
+}
+#logo a:hover img{
+    width:148px;
+    height:36px;
+    padding:0;
+}
+/* main content headers */
+.colmask h1 {
+    display:block;
+    padding-bottom:3px;
+    padding-top:12px;
+    margin-bottom:12px;
+    font-size:18px;
+    border-bottom:1px solid #D7D5D4;
+}
+
+/* Projects list */
+.projects h1 {
+    color:#DB0000;
+}
+.projects li {
+    font:105% "Verdana";
+    margin-left:30px;
+    margin-bottom:2px;
+    color:#DB0000;
+}
+.projects li:hover {
+    color:#1B6BAE;
+    cursor:pointer;
+}
+.projects ul {
+    list-style:none;
+}
+
+/* Tags list */
+.tags h1 {
+    color:#1B6BAE;
+}
+.tags li {
+    margin-left:20px;
+    margin-bottom:2px;
+    color:#1B6BAE;
+}
+
+/* Tasks list */
+.tasks h1 {
+    color:#6BBA1F;
+}
+.tasks h2 {
+    font-size:105%;
+}
+.tasks h3 {
+    font-size:105%;
+    color:#DB0000;
+    display:block;
+    padding-left:0.3em;
+    margin-bottom:4px;
+    margin-top:12px;
+}
+.tasks h3:hover {
+    color:#1B6BAE;
+    cursor:pointer;
+}
+.tasks h4 {
+    font-size:100%;
+    color:gray;
+    margin-left:15px;
+    margin-top:5px;
+}
+.tasks li {
+    margin-left:20px;
+    margin-top:2px;
+    list-style:none;
+}
+
+#footer {
+    background:#FFF url(img/footer.gif) bottom left repeat-x;
+    padding:5px;
+    text-align:center;
+    vertical-align:top;
+    margin-top:10px;
+    clear:both;
+}
+
+/* links */
+#footer a {
+    color:#807859;
+    text-decoration:none;
+}
+#footer a:hover {
+    text-decoration:underline;
+}
+
+/* all the Task line settings */
+.tag {
+    /*color:#1B6BAE;*/
+    color:#6F6FB9;
+    font-size:90%;
+}
+.tag:hover {
+    color:#DB0000;
+    cursor:pointer;
+}
+.tagdue {
+    color:#6BBA1F;
+    font-size:90%;
+}
+.tagdue:hover {
+    color:#90CB57;
+    cursor:pointer;
+}
+.note {
+    display:block;
+    padding:0 0 2px 46px;
+    color:#777;
+	font-style:italic;
+	font-size:85%;
+}
+.tasks li .note {
+    display:inline;
+    padding-left:10px;
+    color:#DB0000;
+}
+strike {
+    color:gray;
+}
+.star-tag, .starred{
+    background:#ff9;
+}
+.done-tag {
+    color:black;
+    background:#EAEAEA;
+}
+.due-tag {
+    color:white;
+    background:#6BBA1F;
+}
+.star-tag, .done-tag, .due-tag {
+    padding:0 3px 0 3px;
+}
+.star-tag:hover, .done-tag:hover, .due-tag:hover {
+    font-weight:bolder;
+    cursor:pointer;
+}
+
+
+/* Buttons and icons */
+.icon {
+    margin-top:3px;
+    vertical-align:top;
+    height:32px;
+    width:32px;
+    margin-right:10px;
+    padding:2px;
+    border:0;
+}
+.icon:hover {
+    margin-top:1px;
+    height:36px;
+    width:36px;
+    padding:0;
+    cursor:pointer;
+}
+.tool-icon {
+    padding:2px;
+    height:24px;
+    width:24px;
+    margin-right:5px;
+    margin-top:2px;
+}
+.tool-icon:hover {
+    padding:0px;
+    height:28px;
+    width:28px;
+}
+.task-buttons {
+    text-align:right;
+}
+.star-button, .archive-button, .delete-button {
+    margin-left:6px;
+    height:12px;
+    width:12px;
+    padding:2px;
+}
+.star-button:hover, .archive-button:hover, .delete-button:hover {
+    height:16px;
+    width:16px;
+    padding:0;
+    cursor:pointer;
+}
+.task-tools {
+    text-align:right;
+    width:100px;
+    height:36px;
+    float:right;
+    margin-right:2px;
+    padding-right:6px;
+}
+
+#find-box {
+    font-size:110%;
+    height:18px;
+    width:475px;
+    padding:1px;
+    margin:7px;
+    vertical-align:top;
+}
+
+/* The editing box */
+#edit-tasks {
+    display:none;
+    margin:5px 20px;
+}
+#edit-tasks textarea {
+    font:14px verdana, helvetica,sans-serif;
+    width:100%;
+    height:500px;
+    border:1px solid #D7D5D4;
+    padding:3px;
+    margin-top:3px;
+}
+#edit-tasks .find-replace-bar {
+    width:auto;
+    float:left;
+    height:38px;
+    margin-top:2px;
+    padding-top:6px;
+    vertical-align:top;
+}
+
+/* Sliding message banner at top */
+#message-banner {
+    opacity:0;
+    position:absolute;
+    top:-15px;
+    left:0;
+    z-index:10;
+    background:#FFFF88;
+    padding:7px;
+    border:1px solid #CCCCCC;
+    text-align:center;
+    font-weight:bold;
+    width:99%;
+}
+
+#cheatsheet div {
+    float:right;
+    height:auto;
+}
+#cheatsheet table {
+    border:1px solid #D7D5D4;
+    margin-top:10px;
+    margin-bottom:10px;
+    border-collapse:collapse;
+}
+#cheatsheet th, #cheatsheet td{
+    padding:0.2em;
+}
+#cheatsheet td {
+    padding-left:0.8em;
+}
+pre {
+    font:14px Verdana;
+}
+

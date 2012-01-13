@@ -1,0 +1,9 @@
+shell bash
+
+hardstatus alwayslastline "%{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?"
+
+defscrollback 1000
+
+multiuser on
+
+bind ` select 0
