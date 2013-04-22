@@ -1,0 +1,15 @@
+# You must enable mod_headers and mod_mime for these directives (optionally you can also enable mod_deflate)!
+<IfModule mod_expires.c>
+    ExpiresActive On
+    <FilesMatch "^(?!.*\.(svg|png|gif)$).*$">
+        ExpiresDefault "access"
+    </FilesMatch>
+    <FilesMatch "\.(svg|png|gif)$">
+        ExpiresDefault "access plus 30 minutes"
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+</IfModule>
+
