@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Geneology Graph</title>
+<link rel='stylesheet' type='text/css' href='css/graph.css'>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
+<script type='text/javascript' src='http://cpettitt.github.io/project/dagre-d3/v0.1.5/dagre-d3.min.js'></script>
+<script type='text/javascript' src='http://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js'></script>
+<script type='text/javascript'>
+$(function() {
+    $.get(
+        "geneology.dot",
+        {},
+        function(data) {
+            console.log('Loaded DOT file.');
+            var g = graphlibDot.parse(data)
+            var renderer = new dagreD3.Renderer();
+            renderer.run(g, d3.select("svg g"));
+        },
+        'text.vnd-graphviz'
+    )
+});
+</script>
+</head>
+<body>
+Geneology Graph
+<p>
+    Genealogy of Christ taken from <a href="http://www.biblegateway.com/passage/?search=Luke%203:23-38&version=NIV">Luke 3:23-38 (NIV )</a></br>
+Genealogy of Lamech taken from <a href="http://www.biblegateway.com/passage/?search=Genesis%204:17-22&version=NIV">Genesis 4:17-22 (NIV)</a>
+</p>
+<svg width=600 height=8000>
+    <g transform="translate(20,20)"/>
+</svg>
+</body>
+</html>
