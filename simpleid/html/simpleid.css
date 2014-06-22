@@ -1,0 +1,294 @@
+/*
+ * SimpleID
+ *
+ * Copyright (C) Kelvin Mo 2009
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public
+ * License along with this program; if not, write to the Free
+ * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * 
+ * $Id$
+ */
+
+body {
+	margin: 0;
+	padding: 0;
+	font: 12px normal Helvetica, Arial, sans-serif;
+	line-height: 1em;
+}
+
+#upgrade-check {
+    background-color: #AA1144;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    text-align: center;
+    display: none;
+}
+#upgrade-check p {
+    margin: 0;
+    padding: 0;
+}
+#upgrade-check a {
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom-color: #FFFFFF;
+}
+
+#header {
+    background-color: #666666;
+    color: #CCCCCC;
+    padding: 5px 10px;
+}
+
+#header h1 {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0.5em 0;
+    color: #CCCCCC;
+    letter-spacing: 0;
+}
+
+#header h1 a {
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+#logo {
+    float: left;
+}
+
+#nav {
+    background-color: #666666;
+    color: #CCCCCC;
+    padding: 5px 10px;
+}
+#nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+#nav li {
+    display: inline;
+    list-style-type: none;
+}
+#nav a {
+    background-color: #888888;
+    padding: 6px 8px;
+    border-width: 0;
+    color: #FFFFFF;
+}
+#nav ul#nav-left { float: left; }
+#nav ul#nav-right { float: right; }
+
+#footer {
+    margin: 2em 0;
+    padding: 0px 10px;
+    text-align: right;
+    font-size: 0.9em;
+    color: #999999;
+}
+#footer address { font-style: normal }
+#footer a { color: #999999; }
+
+#content {
+    margin: 1em 10px;
+    clear: both;
+}
+
+h1 {
+    margin: 1em 0;
+    font-weight: normal;
+    font-size: 1.8em;
+    color: #666666;
+}
+
+h2 {
+    margin: 2em 0;
+    padding-top: 1em;
+    font-weight: normal;
+    font-size: 1.5em;
+    color: #666666;    
+    border-top: 2px dotted #BBBBBB;
+}
+
+p, li { line-height: 1.5; }
+
+a {
+    border-bottom: 1px solid #CCCCCC;
+    color: #1144AA;
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+a:visited {
+    border-color: #CCCCCC;
+    color: #114499;
+}
+a:focus, a:hover {
+    border-color: #4488EE;
+    color: #4488EE;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 0 1em 0;
+    width: 100%;
+}
+
+td, th {
+    border-bottom: 1px solid #CCCCCC;
+    text-align: left;
+    vertical-align: top;
+    padding: 5px 5px;
+}
+th {
+    border-bottom: 0px;
+    background-color: #666666;
+    color: #FFFFFF;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+pre {
+    border:1px solid #CCCCCC;
+    padding: 5px;
+    font-family:"Bitstream Vera Sans Mono","Courier New",monospace;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: scroll;
+}
+
+.realm, .site {
+    padding-left: 20px;
+    background: transparent url(world.png) no-repeat top left;
+}
+.app {
+    padding-left: 20px;
+    background: transparent url(application.png) no-repeat top left;
+}
+.device {
+    padding-left: 20px;
+    background: transparent url(drive.png) no-repeat top left;
+}
+
+span.last-time { display: none }
+
+.message, .login-security {
+    border: 1px solid #666666;
+    padding: 0 10px;
+    background: #DDDDDD;
+    margin-bottom: 10px;
+}
+.message p { line-height: 1; }
+
+.unsecure {
+    border: 1px solid #AAAA11;
+    background: #FFFFDD;
+}
+.unsecure p { padding-left: 20px; background: transparent url(lock-open.png) no-repeat top left; }
+.secure {
+    border: 1px solid #44AA11;
+    background: #EEFFDD;
+}
+.secure p { padding-left: 20px; background: transparent url(lock.png) no-repeat top left; }
+
+.user {
+    float: right;
+    margin: 0.5em 0;
+}
+.logged-in-as {
+    padding-left: 20px;
+    background: transparent url(user.png) no-repeat top left;
+}
+.logged-in-as .identity { color: #FFFFFF; }
+.logged-in-as a {
+    color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+    font-weight: normal;
+}
+
+.block {
+    background-color: #EEEEEE;
+    margin-bottom: 20px;
+}
+.block-header {
+    background-color: #666666;
+    margin:0 0 5px;
+    padding: 5px 10px;
+}
+.block-header h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    border-top-width: 0;
+}
+.block-header-links {
+    float: right;
+    font-size: 0.9em;
+    text-align: right;
+    white-space: nowrap;
+}
+.block-header-links a {
+    color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+    font-weight: normal;
+}
+.block-content {
+    padding: 5px 10px;
+}
+.block-content p {
+    margin: 0 0 5px 0;
+    padding: 0;
+}
+.block-content h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 0 0 0;
+}
+
+#discovery label { display: inline; }
+#discovery-templates { display: none; }
+
+/* Forms */
+.form-item {
+    margin: 1em 0;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    padding: 2px 0;
+}
+label.option { font-weight: normal; }
+
+/* Dialogs and dialog pages */
+.dialog-page {
+    background: #EEEEEE;
+}
+
+.dialog-page #content {
+    margin: 50px auto;
+    width: 400px;
+    padding: 20px;
+    border: 10px solid #DDDDDD;
+    background: #FFFFFF;
+}
+
+.dialog-page .form-text {
+    width: 100%;
+}
