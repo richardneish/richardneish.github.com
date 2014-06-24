@@ -8,14 +8,25 @@
 <script type='text/javascript' src='http://cpettitt.github.io/project/graphlib-dot/v0.4.10/graphlib-dot.min.js'></script>
 <script type='text/javascript'>
 $(function() {
+    // Fetch the Graphviz data.
     $.get(
         "geneology.dot",
         {},
         function(data) {
             console.log('Loaded DOT file.');
+            // Render the Graphviz data.
             var g = graphlibDot.parse(data)
             var renderer = new dagreD3.Renderer();
             renderer.run(g, d3.select("svg g"));
+            
+            // Add unique IDs to each node and edge.
+            d3.selectAll('g.node').attr("id", function(d,i){return "node" + i;});
+            d3.selectAll('g.edgePath').attr("id", function(d,i){return "edge" + i;});
+            
+            // Add a click handlers to highlight the selected node.
+            // TODO: Use classes to style instead of setting the attr directly.
+            // FIXME: Need to remove the selection from other nodes when a new one is clicked.
+            d3.selectAll('g.node').on('click', function(d,i) {d3.select("#node"+i).attr("fill", "red");})
         }
     )
 });
