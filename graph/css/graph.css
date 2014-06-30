@@ -8,6 +8,10 @@ svg {
     fill: #fff;
 }
 
+.node.selected rect {
+    fill: #f00;
+}
+
 .edgeLabel rect {
     fill: #fff;
 }
