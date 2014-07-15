@@ -22,12 +22,18 @@ $(function() {
             // Attach the node IDs from the DOT file, with a fallback to node<N> if there is no ID.
             d3.selectAll('g.node').attr("id", function(d,i){return typeof id === 'undefined' ? "node" + i : id;});
             
-            // Add a click handlers to highlight the selected node.
+            // Add a click handler to highlight the selected node.
             d3.selectAll("g.node")
                 .on("click", function(d,i) {
                     d3.selectAll("g.node").classed("selected", false);
                     d3.select("#" + d3.event.currentTarget.id).classed("selected", true)
                 })
+                
+            // Dynamically resize the SVG element based on the bounding box of the contents.
+            var svg=document.querySelector('#graphContainer');
+            var bbox=svg.getBBox();
+            svg.style.width=bbox.width + 40.0 + "px";
+            svg.style.height=bbox.height + 40.0 + "px";
         }
     )
 });
@@ -39,7 +45,7 @@ Geneology Graph
     Genealogy of Christ taken from <a href="http://www.biblegateway.com/passage/?search=Luke%203:23-38&version=NIV">Luke 3:23-38 (NIV )</a></br>
 Genealogy of Lamech taken from <a href="http://www.biblegateway.com/passage/?search=Genesis%204:17-22&version=NIV">Genesis 4:17-22 (NIV)</a>
 </p>
-<svg width=600 height=8000>
+<svg id="graphContainer">
     <g transform="translate(20,20)"/>
 </svg>
 </body>
