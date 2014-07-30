@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+  <head>
+    <dateCreated>Wed, 30 Jul 2014 14:43:29 +0000</dateCreated>
+    <title>Tiny Tiny RSS Feed Export</title>
+  </head>
+  <body>
+    <outline text="blogs">
+      <outline type="rss" text="Geero.net" xmlUrl="http://www.geero.net/atom.xml" htmlUrl="http://www.geero.net"/>
+      <outline type="rss" text="Inconsolation" xmlUrl="http://inconsolation.wordpress.com/feed/" htmlUrl="http://inconsolation.wordpress.com"/>
+      <outline type="rss" text="Let it crash" xmlUrl="http://letitcrash.com/rss" htmlUrl="http://letitcrash.com/"/>
+      <outline type="rss" text="Raymii.org" xmlUrl="http://feeds.feedburner.com/Raymiiorg" htmlUrl="https://raymii.org/s"/>
+      <outline type="rss" text="Scott Hanselman's Blog" xmlUrl="http://feeds.feedburner.com/ScottHanselman" htmlUrl="http://www.hanselman.com/blog/"/>
+      <outline type="rss" text="Software Testing Blog Â» Ask The Bug..." xmlUrl="http://blog.coverity.com/category/ask-the-bug-guys/feed/" htmlUrl="http://blog.coverity.com"/>
+      <outline type="rss" text="The Old New Thing" xmlUrl="http://blogs.msdn.com/oldnewthing/rss.xml" htmlUrl="http://blogs.msdn.com/b/oldnewthing/"/>
+      <outline type="rss" text="You've Been Haacked" xmlUrl="http://feeds.haacked.com/haacked/" htmlUrl="http://haacked.com/"/>
+    </outline>
+    <outline text="christianity">
+</outline>
+    <outline text="hacks">
+      <outline type="rss" text="Commands with 3 up-votes" xmlUrl="http://www.commandlinefu.com/feed/threeup" htmlUrl="http://www.commandlinefu.com/feed/threeup"/>
+      <outline type="rss" text="Hack a Day" xmlUrl="http://www.hackaday.com/rss.xml" htmlUrl="http://hackaday.com"/>
+    </outline>
+    <outline text="news">
+      <outline type="rss" text="Hacker News" xmlUrl="http://news.ycombinator.com/rss" htmlUrl="https://news.ycombinator.com/"/>
+      <outline type="rss" text="Next Big Future" xmlUrl="http://feeds.feedburner.com/blogspot/advancednano" htmlUrl="http://nextbigfuture.com/"/>
+      <outline type="rss" text="Slashdot" xmlUrl="http://rss.slashdot.org/Slashdot/slashdot" htmlUrl="http://slashdot.org/"/>
+    </outline>
+    <outline text="tools">
+</outline>
+    <outline type="rss" text="Tiny Tiny RSS: Forum" xmlUrl="http://tt-rss.org/forum/rss.php" htmlUrl="http://tt-rss.org/forum/index.php"/>
+    <outline type="rss" text="Tiny Tiny RSS: New Releases" xmlUrl="http://tt-rss.org/releases.rss" htmlUrl="http://tt-rss.org/"/>
+  </body>
+</opml>
